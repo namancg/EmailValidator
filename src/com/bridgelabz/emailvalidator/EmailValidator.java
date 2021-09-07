@@ -25,6 +25,9 @@ public class EmailValidator {
 		checkValidEmail(emailId);
 		emailId = "abc-100@abc.net";
 		checkValidEmail(emailId);
+		emailId = "abc.100@abc.com.au";
+		checkValidEmail(emailId);
+		
 		
 		emailId = ".abc@abc.com";
 		checkValidEmail(emailId);
@@ -44,6 +47,10 @@ public class EmailValidator {
 		checkValidEmail(emailId);
 		emailId = "abc@%*@gmail.com";
 		checkValidEmail(emailId);
+		emailId = "abc@gmail.com.1a";
+		checkValidEmail(emailId);
+		emailId = "abc@gmail.com.aa.au";
+		checkValidEmail(emailId);
 		
 
 
@@ -51,7 +58,7 @@ public class EmailValidator {
 	}
 	public static void checkValidEmail(String email) 
 	{
-		String regexCheck= "^[a-zA-z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[.a-z]*$";
+		String regexCheck= "^[a-zA-z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[a-z]+[.]?[a-z]+$";
 		Pattern pattern = Pattern.compile(regexCheck);
 		Matcher obj= pattern.matcher(email);
 		if(obj.matches()==true)
