@@ -7,16 +7,26 @@ public class EmailValidator {
 	{
 		String emailId = "abc@bridgelabz.co.in";
 		checkValidEmail(emailId);
+		emailId = "abc@bbridgelabz.com";
+		checkValidEmail(emailId);
+		emailId = "abc@bridgelabz.co.in";
+		checkValidEmail(emailId);
+		emailId = "abc@bridgelabz.com";
+		checkValidEmail(emailId);
 		emailId = ".abc@abc.com";
 		checkValidEmail(emailId);
-		emailId = "_abc.@gmail.com";
+		emailId = "abc@123@gmaila";
 		checkValidEmail(emailId);
-		
+		emailId = "abc@abc@gmailcom";
+		checkValidEmail(emailId);
+		emailId = "abc123@gmaila";
+		checkValidEmail(emailId);
+
 
 	}
 	public static void checkValidEmail(String email) 
 	{
-		String regexCheck= "^[a-zA-z]*[@][.a-zA-Z]*$";
+		String regexCheck= "^[a-zA-z]*[@][.a-z0-9]+[.]{1}[.a-z]*$";
 		Pattern pattern = Pattern.compile(regexCheck);
 		Matcher obj= pattern.matcher(email);
 		if(obj.matches()==true)
